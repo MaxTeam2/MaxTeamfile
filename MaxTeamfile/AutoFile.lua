@@ -2,31 +2,31 @@ local function AutoFile(msg)
 local text = msg.content_.text_
 if Sudo(msg) then
 if text == 'تفعيل النسخه التلقائيه' or text == 'تفعيل جلب نسخه الكروبات' or text == 'تفعيل عمل نسخه للمجموعات' then   
-Dev_Haider(msg.chat_id_,msg.id_, 1, "⌁︙تم تفعيل جلب نسخة الكروبات التلقائيه\n⌁︙سيتم ارسال نسخه تلقائيه للكروبات كل يوم الى خاص المطور الاساسي", 1, 'md')
-DevHaider:del(MaxTeam.."Haider:Lock:AutoFile")
+Dev_Abs(msg.chat_id_,msg.id_, 1, "⌁︙تم تفعيل جلب نسخة الكروبات التلقائيه\n⌁︙سيتم ارسال نسخه تلقائيه للكروبات كل يوم الى خاص المطور الاساسي", 1, 'md')
+DevAbs:del(Latvia.."Abs:Lock:AutoFile")
 end
 if text == 'تعطيل النسخه التلقائيه' or text == 'تعطيل جلب نسخه الكروبات' or text == 'تعطيل عمل نسخه للمجموعات' then  
-Dev_Haider(msg.chat_id_,msg.id_, 1, "⌁︙تم تعطيل جلب نسخة الكروبات التلقائيه", 1, 'md')
-DevHaider:set(MaxTeam.."Haider:Lock:AutoFile",true) 
+Dev_Abs(msg.chat_id_,msg.id_, 1, "⌁︙تم تعطيل جلب نسخة الكروبات التلقائيه", 1, 'md')
+DevAbs:set(Latvia.."Abs:Lock:AutoFile",true) 
 end 
 end
 
-if (text and not DevHaider:get(MaxTeam.."Haider:Lock:AutoFile")) then
-Time = DevHaider:get(MaxTeam.."Haider:AutoFile:Time")
+if (text and not DevAbs:get(Latvia.."Abs:Lock:AutoFile")) then
+Time = DevAbs:get(Latvia.."Abs:AutoFile:Time")
 if Time then 
 if Time ~= os.date("%x") then 
-local list = DevHaider:smembers(MaxTeam..'Haider:Groups') 
-local BotName = (DevHaider:get(MaxTeam.."Haider:NameBot") or 'لاريكا')
-local GetJson = '{"BotId": '..MaxTeam..',"BotName": "'..BotName..'","GroupsList":{'  
+local list = DevAbs:smembers(Latvia..'Abs:Groups') 
+local BotName = (DevAbs:get(Latvia.."Abs:NameBot") or 'لاريكا')
+local GetJson = '{"BotId": '..Latvia..',"BotName": "'..BotName..'","GroupsList":{'  
 for k,v in pairs(list) do 
-LinkGroups = DevHaider:get(MaxTeam.."Haider:Groups:Links"..v)
-Welcomes = DevHaider:get(MaxTeam..'Haider:Groups:Welcomes'..v) or ''
-HaiderConstructors = DevHaider:smembers(MaxTeam..'Haider:HaiderConstructor:'..v)
-BasicConstructors = DevHaider:smembers(MaxTeam..'Haider:BasicConstructor:'..v)
-Constructors = DevHaider:smembers(MaxTeam..'Haider:Constructor:'..v)
-Managers = DevHaider:smembers(MaxTeam..'Haider:Managers:'..v)
-Admis = DevHaider:smembers(MaxTeam..'Haider:Admins:'..v)
-Vips = DevHaider:smembers(MaxTeam..'Haider:VipMem:'..v)
+LinkGroups = DevAbs:get(Latvia.."Abs:Groups:Links"..v)
+Welcomes = DevAbs:get(Latvia..'Abs:Groups:Welcomes'..v) or ''
+AbsConstructors = DevAbs:smembers(Latvia..'Abs:AbsConstructor:'..v)
+BasicConstructors = DevAbs:smembers(Latvia..'Abs:BasicConstructor:'..v)
+Constructors = DevAbs:smembers(Latvia..'Abs:Constructor:'..v)
+Managers = DevAbs:smembers(Latvia..'Abs:Managers:'..v)
+Admis = DevAbs:smembers(Latvia..'Abs:Admins:'..v)
+Vips = DevAbs:smembers(Latvia..'Abs:VipMem:'..v)
 if k == 1 then
 GetJson = GetJson..'"'..v..'":{'
 else
@@ -87,9 +87,9 @@ end
 end   
 GetJson = GetJson..'],'
 end
-if #HaiderConstructors ~= 0 then
-GetJson = GetJson..'"HaiderConstructors":['
-for k,v in pairs(HaiderConstructors) do
+if #AbsConstructors ~= 0 then
+GetJson = GetJson..'"AbsConstructors":['
+for k,v in pairs(AbsConstructors) do
 if k == 1 then
 GetJson =  GetJson..'"'..v..'"'
 else
@@ -104,21 +104,21 @@ end
 GetJson = GetJson..'"Welcomes":"'..Welcomes..'"}'
 end
 GetJson = GetJson..'}}'
-local File = io.open('./'..MaxTeam..'.json', "w")
+local File = io.open('./'..Latvia..'.json', "w")
 File:write(GetJson)
 File:close()
 local abbas = 'https://api.telegram.org/bot' .. TokenBot .. '/sendDocument'
-local curl = 'curl "' .. abbas .. '" -F "chat_id='..DevId..'" -F "document=@'..MaxTeam..'.json' .. '" -F "caption=⌁︙يحتوي الملف على ↫ '..#list..' مجموعه"'
+local curl = 'curl "' .. abbas .. '" -F "chat_id='..DevId..'" -F "document=@'..Latvia..'.json' .. '" -F "caption=⌁︙يحتوي الملف على ↫ '..#list..' مجموعه"'
 io.popen(curl)
-io.popen('fm -fr '..MaxTeam..'.json')
-DevHaider:set(MaxTeam.."Haider:AutoFile:Time",os.date("%x"))
+io.popen('fm -fr '..Latvia..'.json')
+DevAbs:set(Latvia.."Abs:AutoFile:Time",os.date("%x"))
 end
 else 
-DevHaider:set(MaxTeam.."Haider:AutoFile:Time",os.date("%x"))
+DevAbs:set(Latvia.."Abs:AutoFile:Time",os.date("%x"))
 end
 end
 
 end
 return {
-MaxTeam = AutoFile
+Latvia = AutoFile
 }

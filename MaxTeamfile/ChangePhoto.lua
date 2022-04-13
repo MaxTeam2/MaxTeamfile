@@ -4,11 +4,11 @@ if ChatType == 'sp' or ChatType == 'gp'  then
 if text then 
 tdcli_function({ID = "GetUser",user_id_ = msg.sender_user_id_},function(arg,result)
 if result.id_ then 
-local abbs = DevHaider:get("MaxTeamTEAM:Photo"..result.id_)
+local abbs = DevAbs:get("LatviaTEAM:Photo"..result.id_)
 if not result.profile_photo_ then 
 if abbs then 
-Dev_Haider(msg.chat_id_, msg.id_, 1, "حذف كل صوره مضروب بوري، 😹💔", 1, 'html')
-DevHaider:del("MaxTeamTEAM:Photo"..result.id_) 
+Dev_Abs(msg.chat_id_, msg.id_, 1, "حذف كل صوره مضروب بوري، 😹💔", 1, 'html')
+DevAbs:del("LatviaTEAM:Photo"..result.id_) 
 end
 end
 if result.profile_photo_ then 
@@ -20,9 +20,9 @@ local abbs_text = {
 "اححح شنيي هالصوره الجديده، 🤤♥️",
 }
 abbs3 = math.random(#abbs_text)
-Dev_Haider(msg.chat_id_, msg.id_, 1, abbs_text[abbs3], 1, 'html')
+Dev_Abs(msg.chat_id_, msg.id_, 1, abbs_text[abbs3], 1, 'html')
 end  
-DevHaider:set("MaxTeamTEAM:Photo"..result.id_, result.profile_photo_.big_.persistent_id_) 
+DevAbs:set("LatviaTEAM:Photo"..result.id_, result.profile_photo_.big_.persistent_id_) 
 end
 end
 end,nil) 
@@ -31,5 +31,5 @@ end
 
 end
 return {
-MaxTeam = ChangePhoto
+Latvia = ChangePhoto
 }
