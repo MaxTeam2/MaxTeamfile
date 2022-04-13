@@ -1,0 +1,29 @@
+{
+  
+"result": true,
+  
+"plugins_": {
+  
+"AddedMe.lua":"[ملف امر منو ضافني](https://t.me/OXKXDQK)",
+  
+"TagAll.lua":"[ملف تاك منفصل للاعضاء](https://t.me/OXKXDQK)",
+  
+"TagAdmins.lua":"[ملف تاك منفصل للمشرفين](https://t.me/OXKXDQK)",
+  
+"ReplyBot.lua":"[ملف الردود الخاص بالسورس](https://t.me/OXKXDQK)",
+      
+"MuteNames.lua":"[ملف كتم الاسماء للمجموعات](https://t.me/OXKXDQK)",
+  
+"ProNames.lua":"[ملف وضع التوحيد للمجموعات](https://t.me/OXKXDQK)",
+  
+"ChangeName.lua":"[ملف التنبيه لتغيير الاسم](https://t.me/OXKXDQK)",
+    
+"ChangeUser.lua":"[ملف التنبيه لتغيير المعرف](https://t.me/OXKXDQK)",
+  
+"ChangePhoto.lua":"[ملف التنبيه لتغيير الصوره](https://t.me/OXKXDQK)",
+  
+"AutoFile.lua":"[ملف النسخ الاحتياطيه التلقائيه](https://t.me/OXKXDQK)",
+  
+}
+  
+}
